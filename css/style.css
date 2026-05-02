@@ -759,29 +759,118 @@ a {
   color: var(--black);
 }
 
-.videos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+/* --- Teaser vedette --- */
+.video-featured {
+  position: relative;
+  margin-bottom: 4rem;
+  background: var(--black);
+  overflow: hidden;
 }
 
-.video-placeholder {
+.video-featured-player {
+  display: block;
+  width: 100%;
   aspect-ratio: 16/9;
-  background: #f0f0f0;
-  border: 1px dashed #ccc;
+  object-fit: cover;
+  background: #000;
+}
+
+.video-featured-info {
+  padding: 1.4rem 1.8rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  color: #aaa;
-  font-size: 0.8rem;
+  gap: 1.2rem;
+}
+
+.video-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.video-featured-title {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
   letter-spacing: 0.1em;
+}
+
+.video-featured-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.12em;
+  margin-left: auto;
   text-transform: uppercase;
 }
 
-.video-placeholder svg {
-  opacity: 0.3;
+/* --- Sous-titre grille live --- */
+.videos-sub-title {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Grille live --- */
+.videos-live-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  background: #000;
+}
+
+.video-card-label {
+  padding: 0.5rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  background: var(--black);
+}
+
+@media (max-width: 900px) {
+  .videos-live-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .video-featured-desc {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .videos-live-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .video-featured-info {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
 }
 
 /* ===== CONTACT ===== */
